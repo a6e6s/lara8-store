@@ -71,5 +71,5 @@
 		</div>
 	</div><!--/header-middle-->
 
-	<x-mainmenu />
+	<x-mainmenu title="main menu"> <!-- editional data --> </x-mainmenu>
 </header><!--/header-->

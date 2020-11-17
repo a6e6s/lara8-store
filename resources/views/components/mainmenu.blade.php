@@ -1,4 +1,4 @@
-<div class="header-bottom">
+<div {{ $attributes }} class="header-bottom">
     <!--header-bottom-->
     <div class="container">
         <div class="row">
@@ -37,5 +37,6 @@
             </div>
         </div>
     </div>
+    {{ $slot }}
 </div>
 <!--/header-bottom-->
