@@ -1,5 +1,7 @@
-<header id="header"><!--header-->
-	<div class="header_top"><!--header_top-->
+<header id="header">
+	<!--header-->
+	<div class="header_top">
+		<!--header_top-->
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6">
@@ -23,9 +25,11 @@
 				</div>
 			</div>
 		</div>
-	</div><!--/header_top-->
-	
-	<div class="header-middle"><!--header-middle-->
+	</div>
+	<!--/header_top-->
+
+	<div class="header-middle">
+		<!--header-middle-->
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-4">
@@ -43,7 +47,7 @@
 								<li><a href="#">UK</a></li>
 							</ul>
 						</div>
-						
+
 						<div class="btn-group">
 							<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
 								DOLLAR
@@ -59,17 +63,29 @@
 				<div class="col-sm-8">
 					<div class="shop-menu pull-right">
 						<ul class="nav navbar-nav">
-							<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-							<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-							<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-							<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-							<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+							@auth
+							<li><a href="/account"><i class="fa fa-user"></i> Account</a></li>
+							<li><a href="/wishlist"><i class="fa fa-star"></i> Wishlist</a></li>
+							<li><form class="form-inline" action="{{ route('logout') }}" method="post">
+								@csrf
+								<button type="submit"><i class="fa fa-lock"></i> Logout</button>
+							</form></li>
+							@endauth
+							@guest
+							<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+							@endguest
+							<li><a href="/checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+							<li><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div><!--/header-middle-->
+	</div>
+	<!--/header-middle-->
 
-	<x-mainmenu title="main menu"> <!-- editional data --> </x-mainmenu>
-</header><!--/header-->
+	<x-mainmenu title="main menu">
+		<!-- editional data -->
+	</x-mainmenu>
+</header>
+<!--/header-->

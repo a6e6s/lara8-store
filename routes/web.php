@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
-// Route::view('about','about')->name('about');
-// Route::view('contact','contact')->name('contact');
-// Route::view('blog-list','blog-list')->name('blog-list');
-// Route::view('blog-single','blog-single')->name('blog-single');
-// Route::view('products','products')->name('products');
-// Route::view('product-single','product-single')->name('product-single');
-// Route::view('blog-single','blog-single')->name('blog-single');
+
+Route::view('login', 'login')->name('login');
+Route::post('login', [UserController::class, 'login']);
+Route::post('logout', [UserController::class, 'logout'])->name('logout');
+
+
+Route::view('about', 'about')->name('about');
+Route::view('contact', 'contact')->name('contact');
+Route::view('blog', 'blog')->name('blog-list');
+Route::view('products', 'shop')->name('products');
+Route::view('product-single', 'product-details')->name('product-single');
+Route::view('blog-single', 'blog-single')->name('blog-single');
+Route::view('404', '404');
+Route::view('cart', 'cart');
+Route::view('checkout', 'checkout');

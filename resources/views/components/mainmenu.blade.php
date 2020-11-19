@@ -24,7 +24,7 @@
                             </ul>
                         </li>
                         @else
-                        <li><a href="index.html" class="active">{{$item['title']}}</a></li>
+                        <li><a href="{{$item['url']}}" class="active">{{$item['title']}}</a></li>
                         @endif
                         @endforeach
                     </ul>
