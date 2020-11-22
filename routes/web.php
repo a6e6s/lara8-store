@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::view('login', 'login')->name('login');
 Route::post('login', [UserController::class, 'login']);
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
+Route::post('register', [UserController::class, 'register'])->name('register');
 
 
 Route::view('about', 'about')->name('about');
@@ -33,3 +34,7 @@ Route::view('blog-single', 'blog-single')->name('blog-single');
 Route::view('404', '404');
 Route::view('cart', 'cart');
 Route::view('checkout', 'checkout');
+
+Route::get('dashboard', function () {
+    return 'dashboard';
+})->name('dashboard')->middleware('auth');

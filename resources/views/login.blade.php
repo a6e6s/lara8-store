@@ -5,6 +5,16 @@
 <section id="form">
     <!--form-->
     <div class="container">
+        @if ($errors->all())
+        <div class="row">
+            <div class="alert alert-danger col-sm-9 col-sm-offset-1" role="alert">
+                <h4 class="alert-heading">Errors:</h4>
+                @foreach ($errors->all() as $error)
+                <p>{{ $error }}</p>
+                @endforeach
+            </div>
+            @endif
+        </div>
         <div class="row">
             <div class="col-sm-4 col-sm-offset-1">
                 <div class="login-form">
@@ -18,21 +28,11 @@
                         @endif
                         @csrf
                         <input type="text" name="email" placeholder="Email Address" />
-                        @error('email')
-                        <div class="alert alert-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                        @enderror
                         <input type="password" name="password" placeholder="Password" />
-                        @error('password')
-                        <div class="alert alert-danger" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                        @enderror
-                        {{-- <span>
-                            <input type="checkbox" class="checkbox">
+                        <span>
+                            <input type="checkbox" class="checkbox" name="remember">
                             Keep me signed in
-                        </span> --}}
+                        </span>
                         <button type="submit" class="btn btn-default">Login</button>
                     </form>
                 </div>
@@ -45,11 +45,13 @@
                 <div class="signup-form">
                     <!--sign up form-->
                     <h2>New User Signup!</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email Address" />
-                        <input type="password" placeholder="Password" />
-                        <button type="submit" class="btn btn-default">Signup</button>
+                    <form action="{{ route('register') }}" method="POST">
+                        @csrf
+                        <input name="name" type="text" placeholder="Name" />
+                        <input name="email" type="email" placeholder="Email Address" />
+                        <input name="password" type="password" placeholder="Password" />
+                        <input name="password_confirmation" type="password" placeholder="Password Confirmation" />
+                        <button name="submit" type="submit" class="btn btn-default">Signup</button>
                     </form>
                 </div>
                 <!--/sign up form-->
