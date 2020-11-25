@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Frontend;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\Component;
 
 class Slider extends Component
@@ -33,5 +34,6 @@ class Slider extends Component
      */
     function slider()
     {
+        return DB::table('sliders')->get();
     }
 }
