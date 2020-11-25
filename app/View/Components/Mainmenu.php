@@ -34,7 +34,7 @@ class Mainmenu extends Component
             [
                 'title' => 'blog',
                 'url' => [
-                    ['title' => 'Blog List', 'url' => 'blog-list'],
+                    ['title' => 'Blog List', 'url' => 'blog'],
                     ['title' => 'Blog Single', 'url' => 'blog-single']
                 ],
             ],

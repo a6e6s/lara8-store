@@ -1,7 +1,7 @@
-@extends('layouts.master')
+@extends('frontend.layouts.master')
 @section('title','Home')
 @section('content')
-@include('layouts.slider')
+@include('frontend.layouts.slider')
 <div class="row">
     <div class="col-sm-3">
         <div class="left-sidebar">

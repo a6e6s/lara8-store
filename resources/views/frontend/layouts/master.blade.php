@@ -27,7 +27,7 @@
 <!--/head-->
 
 <body>
-    @include('layouts.header')
+    @include('frontend.layouts.header')
     <section>
         <div class="container">
             @yield('content')
@@ -35,7 +35,7 @@
     </section>
 
 
-    @include('layouts.footer')
+    @include('frontend.layouts.footer')
 
 
     <script src="js/jquery.js"></script>
