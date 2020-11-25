@@ -1,8 +1,7 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Frontend;
 
-use Illuminate\Routing\Route;
 use Illuminate\View\Component;
 
 class Mainmenu extends Component
@@ -24,7 +23,7 @@ class Mainmenu extends Component
      */
     public function render()
     {
-        return view('components.mainmenu');
+        return view('components.frontend.mainmenu');
     }
 
     public function menu()

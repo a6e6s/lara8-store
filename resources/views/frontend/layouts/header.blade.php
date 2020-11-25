@@ -84,8 +84,8 @@
 	</div>
 	<!--/header-middle-->
 
-	<x-mainmenu title="main menu">
+	<x-frontend.mainmenu title="main menu">
 		<!-- editional data -->
-	</x-mainmenu>
+	</x-frontend.mainmenu>
 </header>
 <!--/header-->
