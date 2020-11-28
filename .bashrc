@@ -7,4 +7,5 @@ alias art="php artisan"
 alias migrate="php artisan migrate"
 alias routes='php artisan route:list'
 alias tinker='php artisan tinker'
+alias gdiff='git diff master origin/master'
 

@@ -16,7 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->truncate();
         DB::table('sliders')->truncate();
+        DB::table('categories')->truncate();
+        DB::table('products')->truncate();
         \App\Models\User::factory(10)->create();
         \App\Models\Slider::factory(3)->create();
+        \App\Models\Category::factory(7)->create();
+        \App\Models\Product::factory(20)->create();
     }
 }
