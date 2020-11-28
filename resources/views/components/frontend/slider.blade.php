@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <img src="{{ asset($item->image) }}" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png" class="pricing" alt="" />
+                                {{-- <img src="images/home/pricing.png" class="pricing" alt="" /> --}}
                             </div>
                         </div>
                         @endforeach
