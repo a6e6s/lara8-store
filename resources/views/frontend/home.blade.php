@@ -105,7 +105,7 @@
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
                             <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                            <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                            <li><a href="{{ route('category', ['id'=>$product->category->id]) }}"><i class="fa fa-file-o"></i>{{ $product->category->name }}</a></li>
                         </ul>
                     </div>
                 </div>

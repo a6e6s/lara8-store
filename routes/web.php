@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('frontend.home');
 // })->name('home');
 
+// home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('login', 'frontend.login')->name('login');
 Route::post('login', [UserController::class, 'login']);
@@ -40,7 +43,8 @@ Route::get('dashboard', function () {
     return 'dashboard';
 })->name('dashboard')->middleware('auth');
 
-
+//categories
+Route::get('category/{id}', [CategoryController::class, 'index'])->name('category');
 
 Route::prefix('admin')->namespace('Admin')->middleware('can:admin')->group(function () {
     // Admin routes go here.
