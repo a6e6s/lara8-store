@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +15,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -46,7 +46,12 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        //loading featured categories
+        $categories = Category::where('featured', 1)->orderBy('created_at')->take(10)->get();
+        //loading featured brandes
+        $featured_products = Product::where('status', 'active')->where('category_id', $category->id)->orderBy('created_at')->paginate(12);
+        //loading view
+        return view('frontend.shop', ['categories' => $categories, 'featured_products' => $featured_products, 'category' => $category]);
     }
 
     /**

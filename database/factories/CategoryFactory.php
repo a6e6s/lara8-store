@@ -23,7 +23,8 @@ class CategoryFactory extends Factory
     {
         $cats = ['Kids', 'FASHION', 'Households', 'Interiors', 'Clothing', 'Bags', 'Shoes', 'Womens'];
         return [
-            'name' => $cats[rand(0, 7)],
+            'name' => $slug = $this->faker->unique()->word(),
+            'slug' => strtolower($slug),
             'description' => $this->faker->sentence(10),
             'image' => $this->faker->imageUrl(),
             'status' => 1,

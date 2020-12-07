@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
@@ -32,8 +33,7 @@ Route::post('register', [UserController::class, 'register'])->name('register');
 Route::view('about', 'frontend.about')->name('about');
 Route::view('contact', 'frontend.contact')->name('contact');
 Route::view('blog', 'frontend.blog')->name('blog-list');
-Route::view('products', 'frontend.shop')->name('products');
-Route::view('product-single', 'frontend.product-details')->name('product-single');
+// Route::view('products', 'frontend.shop')->name('products');
 Route::view('blog-single', 'frontend.blog-single')->name('blog-single');
 Route::view('404', '404');
 Route::view('cart', 'frontend.cart');
@@ -44,7 +44,9 @@ Route::get('dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 //categories
-Route::get('category/{id}', [CategoryController::class, 'index'])->name('category');
+Route::get('category/{category}', [CategoryController::class, 'show'])->name('category');
+//product
+Route::get('product/{product}', [ProductController::class, 'show'])->name('product');
 
 Route::prefix('admin')->namespace('Admin')->middleware('can:admin')->group(function () {
     // Admin routes go here.

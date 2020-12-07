@@ -13,7 +13,7 @@ class HomeController extends Controller
         //loading featured categories
         $categories = Category::where('featured', 1)->orderBy('created_at')->take(10)->get();
         //loading featured brandes
-        $featured_products = Product::where('featured', 1)->orderBy('created_at')->paginate(6);
+        $featured_products = Product::where('featured', 1)->where('status', 'active')->orderBy('created_at')->paginate(12);
         //loading featured brandes
 
         //loading view

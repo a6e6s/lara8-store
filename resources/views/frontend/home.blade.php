@@ -33,7 +33,8 @@
                 @foreach ($categories as $category)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4 class="panel-title"><a href="{{ $category->id }}">{{ $category->name }}</a></h4>
+                        <h4 class="panel-title"><a
+                                href="{{ route('category', [$category->slug]) }}">{{ $category->name }}</a></h4>
                     </div>
                 </div>
                 @endforeach
@@ -82,22 +83,25 @@
         <div class="features_items">
             <!--features_items-->
             <h2 class="title text-center">Features Items</h2>
+
             @foreach ($featured_products as $product)
             <div class="col-sm-4">
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <img src="{{ $product['image'] }}" alt="" />
+                            <img src="{{ asset($product['image']) }}" alt="" />
                             <h2>${{ $product['price'] }}</h2>
                             <p>{{ $product['title'] }}</p>
-                            <a href="{{ $product['slug'] }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
+                            <a href="{{ route('product', [$product->slug]) }}" class="btn btn-default add-to-cart"><i
+                                    class="fa fa-shopping-cart"></i>Add to
                                 cart</a>
                         </div>
                         <div class="product-overlay">
                             <div class="overlay-content">
                                 <h2>${{ $product['price'] }}</h2>
                                 <p>{{ $product['title'] }}</p>
-                                <a href="{{ $product['slug'] }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add
+                                <a href="{{ route('product', [$product->slug]) }}" class="btn btn-default add-to-cart"><i
+                                        class="fa fa-shopping-cart"></i>Add
                                     to cart</a>
                             </div>
                         </div>
@@ -105,7 +109,8 @@
                     <div class="choose">
                         <ul class="nav nav-pills nav-justified">
                             <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                            <li><a href="{{ route('category', ['id'=>$product->category->id]) }}"><i class="fa fa-file-o"></i>{{ $product->category->name }}</a></li>
+                            <li><a href="{{ route('category', [$product->category->slug]) }}"><i
+                                        class="fa fa-file-o"></i>{{ $product->category->name }}</a></li>
                         </ul>
                     </div>
                 </div>
